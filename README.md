@@ -1,6 +1,6 @@
-# Using an ASUS Nexus Gamepad on Linux
+# Using a DS4 on Linux
 
-This is a great gamepad, probably the best I've used, but it is nearly useless out of the box. Luckily, a few scripts, udev rules, and an xboxdrv config will work around that.
+This is a great gamepad, probably the second best I've used, but it is useless in some games without the proper hacks. Luckily, a few scripts, udev rules, and an xboxdrv config will work.
 
 This is a very hacky solution. I'm not offering support and take no responsibility if you use the scripts and they destroy your system. It works for me, and that's all I care about. I only provide it here to hopefully save others the hours I spent working it all out.
 
