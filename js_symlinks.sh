@@ -1,6 +1,6 @@
 #!/bin/sh
 
-LOGFILE=/games/xboxdrv/nexus.log
+LOGFILE=/gamepadConf/nexus.log
 
 echo "==============================" >> $LOGFILE
 echo "Change to real js* devices, running symlink script..." >> $LOGFILE

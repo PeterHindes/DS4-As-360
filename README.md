@@ -4,7 +4,7 @@ This is a great gamepad, probably the second best I've used, but it is useless i
 
 This is a very hacky solution. I'm not offering support and take no responsibility if you use the scripts and they destroy your system. It works for me, and that's all I care about. I only provide it here to hopefully save others the hours I spent working it all out.
 
-I put these files into /games/xboxdrv/ but you can look through them all and change the path to whatever you want. I'd advise you do this anyhow, so you know what you're doing on your system!
+I put these files into /gamepadConf/ but you can look through them all and change the path to whatever you want. I'd advise you do this anyhow, so you know what you're doing on your system!
 
 I then copy the 99-nexus-gamepad.rules file into /dev/udev/rules.d/ and make sure xboxdrv is installed.
 

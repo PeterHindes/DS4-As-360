@@ -1,6 +1,6 @@
 #!/bin/sh
 
-LOGFILE=/games/xboxdrv/nexus.log
+LOGFILE=/gamepadConf/nexus.log
 
 # remove the device file
 rm /dev/input/joystick$1

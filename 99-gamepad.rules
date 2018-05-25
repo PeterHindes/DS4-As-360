@@ -1,16 +1,16 @@
 # /etc/udev/rules.d/99-nexus-gamepad.rules
 
 # if a DS4 is connected, run the script which handles renaming and launching xboxdrv
-ACTION=="add", KERNEL=="js*", SUBSYSTEM=="input", SUBSYSTEMS=="bluetooth", DRIVERS=="sony", ATTRS{name}=="Wireless Controller", RUN+="/games/xboxdrv/ds_connect.sh %n"
+ACTION=="add", KERNEL=="js*", SUBSYSTEM=="input", SUBSYSTEMS=="bluetooth", DRIVERS=="sony", ATTRS{name}=="Wireless Controller", RUN+="/gamepadConf/add_js.sh %n"
 
 # if a DS4 is removed, run the script which kills xboxdrv and removes the device
-ACTION=="remove", KERNEL=="js*", SUBSYSTEM=="input", SUBSYSTEMS=="bluetooth", DRIVERS=="sony", ATTRS{name}=="Wireless Controller", RUN+="/games/xboxdrv/ds_disconnect.sh %n"
+ACTION=="remove", KERNEL=="js*", SUBSYSTEM=="input", SUBSYSTEMS=="bluetooth", DRIVERS=="sony", ATTRS{name}=="Wireless Controller", RUN+="/gamepadConf/remove_js.sh %n"
 
 # if a non-DS4 gamepad js* node is added, create the joystick* node
-ACTION=="add", KERNEL=="js*", SUBSYSTEM=="input", SUBSYSTEMS=="input", ATTRS{name}!="Wireless Controller", RUN+="/games/xboxdrv/add_js.sh %n"
+ACTION=="add", KERNEL=="js*", SUBSYSTEM=="input", SUBSYSTEMS=="input", ATTRS{name}!="Wireless Controller", RUN+="/gamepadConf/add_js.sh %n"
 
 # if a non-DS4 gamepad js* node is removed, remove the joystick* node
-ACTION=="remove", KERNEL=="js*", SUBSYSTEM=="input", SUBSYSTEMS=="input", ATTRS{name}!="Wireless Controller", RUN+="/games/xboxdrv/remove_js.sh %n"
+ACTION=="remove", KERNEL=="js*", SUBSYSTEM=="input", SUBSYSTEMS=="input", ATTRS{name}!="Wireless Controller", RUN+="/gamepadConf/remove_js.sh %n"
 
 # run the js* rebuild script if there is any change to the js* nodes  at all
 # this script will handle symlinks to joystick* as sjs*, sorted in order of connection
@@ -18,4 +18,4 @@ ACTION=="remove", KERNEL=="js*", SUBSYSTEM=="input", SUBSYSTEMS=="input", ATTRS{
 # this retains the device ordering we want, as powering down a Nexus gamepad will
 # remove the js* device that the kernel has assigned to it, even if we already
 # deleted or renamed it and replaced it with our own... So this is a brute force.
-KERNEL=="js*", SUBSYSTEM=="input", RUN+="/games/xboxdrv/js_symlinks.sh"
+KERNEL=="js*", SUBSYSTEM=="input", RUN+="/gamepadConf/js_symlinks.sh"

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-LOGFILE=/games/xboxdrv/nexus.log
+LOGFILE=/gamepadConf/nexus.log
 
 # create the device file
 mknod /dev/input/joystick$1 c 13 $1
