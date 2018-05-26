@@ -7,10 +7,10 @@ ACTION=="add", KERNEL=="js*", SUBSYSTEM=="input", SUBSYSTEMS=="bluetooth", DRIVE
 ACTION=="remove", KERNEL=="js*", SUBSYSTEM=="input", SUBSYSTEMS=="bluetooth", DRIVERS=="sony", ATTRS{name}=="Wireless Controller", RUN+="/gamepadConf/remove_js.sh %n"
 
 # if a non-DS4 gamepad js* node is added, create the joystick* node
-#ACTION=="add", KERNEL=="js*", SUBSYSTEM=="input", SUBSYSTEMS=="input", ATTRS{name}!="Wireless Controller", RUN+="/gamepadConf/add_js.sh %n"
+ACTION=="add", KERNEL=="js*", SUBSYSTEM=="input", SUBSYSTEMS=="input", ATTRS{name}!="Wireless Controller", RUN+="/gamepadConf/add_js.sh %n"
 
 # if a non-DS4 gamepad js* node is removed, remove the joystick* node
-#ACTION=="remove", KERNEL=="js*", SUBSYSTEM=="input", SUBSYSTEMS=="input", ATTRS{name}!="Wireless Controller", RUN+="/gamepadConf/remove_js.sh %n"
+ACTION=="remove", KERNEL=="js*", SUBSYSTEM=="input", SUBSYSTEMS=="input", ATTRS{name}!="Wireless Controller", RUN+="/gamepadConf/remove_js.sh %n"
 
 # run the js* rebuild script if there is any change to the js* nodes  at all
 # this script will handle symlinks to joystick* as sjs*, sorted in order of connection
